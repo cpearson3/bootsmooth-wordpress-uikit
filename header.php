@@ -31,12 +31,7 @@
 		<a class="uk-navbar-brand uk-hidden-small" href="/"><?php bloginfo(); ?></a>
 		<?php wp_nav_menu( array( 'menu_id' => 'primary-menu', 'menu_class'=> 'uk-navbar-nav uk-hidden-small' ) ); ?>
 		<div class="uk-navbar-content uk-hidden-small uk-navbar-flip">
-            <form class="uk-form uk-margin-remove uk-display-inline-block" action="/" method="get">
-            	<div class="uk-form-icon">
-			        <i class="uk-icon-search"></i>
-			        <input type="text" name="s" id="search" placeholder="Search here..." value="<?php the_search_query(); ?>" />
-    			</div>
-            </form>
+            <?php get_search_form(); ?>
         </div>
         <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
 	</nav><!-- #site-navigation -->
@@ -45,7 +40,6 @@
         	<?php wp_nav_menu( array( 'menu_id' => 'primary-menu', 'menu_class'=> 'uk-nav uk-nav-offcanvas' ) ); ?>
         	<hr>
         	<div class="uk-panel">
-        		<p class="uk-h3">Search</p>
         		<?php get_search_form(); ?>
         	</div>
         </div>

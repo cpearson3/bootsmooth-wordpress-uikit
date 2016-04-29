@@ -131,8 +131,14 @@ function bootsmooth_wordpress_uikit_scripts() {
 	wp_register_script('uikit', get_template_directory_uri() . '/bower_components/uikit/js/uikit.js');
 	wp_enqueue_script('uikit');
 	
+	wp_register_script('autocomplete', get_template_directory_uri() . '/bower_components/uikit/js/components/autocomplete.min.js');
+	wp_enqueue_script('autocomplete');
+	
 	wp_register_script('grid', get_template_directory_uri() . '/bower_components/uikit/js/components/grid.min.js');
 	wp_enqueue_script('grid');
+	
+	wp_register_script('search', get_template_directory_uri() . '/bower_components/uikit/js/components/search.min.js');
+	wp_enqueue_script('search');
 }
 add_action( 'wp_enqueue_scripts', 'bootsmooth_wordpress_uikit_scripts' );
 

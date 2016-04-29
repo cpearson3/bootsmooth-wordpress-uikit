@@ -37,7 +37,7 @@ get_header(); ?>
 						?>
 							<img src="<?php echo $image['url']; ?>" />
 						<?php endif; ?>
-						<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 						<p><small>
 							<?php the_date(); ?><br>
 						</small></p>
