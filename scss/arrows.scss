@@ -1,0 +1,10 @@
+// sauce: https://css-tricks.com/snippets/css/css-triangle/
+
+@mixin arrow-down ($length, $color) {
+	width: 0; 
+	height: 0; 
+	border-left: $length solid transparent;
+	border-right: $length solid transparent;
+	border-top: $length solid $color;
+	z-index: 1;
+}

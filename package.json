@@ -1,0 +1,24 @@
+{
+  "name": "bootsmooth-wordpress-uikit",
+  "version": "1.0.0",
+  "description": "Bootsmooth Wordpress UIkit Starter Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bootsmooth",
+    "wordpress",
+    "uikit",
+    "theme"
+  ],
+  "author": "Clarence Pearson",
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^3.6.0"
+  },
+  "scripts": {
+    "build-css": "node-sass --include-path scss scss/style.scss   ./style.css",
+    "watch-css": "node-sass -w --include-path scss scss/style.scss   ./style.css"
+  }
+}
