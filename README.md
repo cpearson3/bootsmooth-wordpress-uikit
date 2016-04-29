@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
 
 _s
@@ -43,3 +44,7 @@ Then, update the stylesheet header in `style.css` and the links in `footer.php` 
 Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
 
 Good luck!
+=======
+# bootsmooth-wordpress-uikit
+Wordpress Starter Theme Kit built with UIkit and ACF
+>>>>>>> 51747d4763504615b4fa2362e653b0a95adc91ae
