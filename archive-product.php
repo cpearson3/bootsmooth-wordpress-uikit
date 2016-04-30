@@ -16,11 +16,10 @@ get_header(); ?>
 		if ( have_posts() ) :
 		?>
 
-			<h1>Portfolio</h1>
+			<h1>Products</h1>
 			<!-- Filter Controls -->
 			<ul id="grid-filters" class="uk-subnav">
 			    <li data-uk-filter=""><a href="">All</a></li>
-			    <!-- li data-uk-filter="General"><a href="">General</a></li -->
 			</ul>
 			<div class="uk-grid" data-uk-grid="{controls: '#grid-filters'}">
 			<?php
@@ -31,15 +30,13 @@ get_header(); ?>
 				<div class="uk-width-small-1-2 uk-width-medium-1-3" data-uk-filter="<?php the_field('category'); ?>">
 					<div class="uk-panel uk-panel-box">
 						<?php
-							$image = get_field('feature_image');
+							$image = get_field('image');
 							if( !empty($image) ):
 						?>
 							<img src="<?php echo $image['url']; ?>" />
 						<?php endif; ?>
 						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-						<p><small>
-							<?php the_date(); ?><br>
-						</small></p>
+						<p>$<?php the_field('price'); ?></p>
 					</div>
 				</div>
 			<?php endwhile;?>

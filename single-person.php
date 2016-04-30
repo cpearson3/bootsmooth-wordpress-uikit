@@ -15,17 +15,19 @@ get_header(); ?>
 	
 			<?php
 			while ( have_posts() ) : the_post(); ?>
-				<div itemscope itemtype="http://schema.org/CreativeWork">
+				<div itemscope itemtype="http://schema.org/Person">
 				<?php
-					$image = get_field('feature_image');
+					$image = get_field('image');
 					if( !empty($image) ):
 				?>
-				<img itemprop="image" alt="<?php the_title(); ?>" src="<?php echo $image['url']; ?>">
+				<img class="uk-border-circle bs-person-image" itemprop="image" alt="<?php the_title(); ?>" src="<?php echo $image['url']; ?>">
 				<?php endif; ?>
-				<h1 class="uk-article-title"><a href="<?php the_permalink(); ?>"><span itemprop="name"><?php the_title(); ?></span></a></h1>
-				<p itemprop="datePublished"><small><?php the_date(); ?></small></p>
+				<h1 class="uk-article-title"><span itemprop="name"><?php the_title(); ?></span></h1>
+				<h2><span itemprop="jobTitle"><?php the_field('job_title'); ?></span></h2>
+				<p itemprop="telephone" content="<?php the_field('telephone'); ?>">Phone: <?php the_field('telephone'); ?></p>
+				<p itemprop="email" content="<?php the_field('email'); ?>">Email: <?php the_field('email'); ?></p>
 				<hr class="uk-article-divider">
-				<p itemprop="text"><?php the_field('content'); ?></p>
+				<p itemprop="description"><?php the_field('description'); ?></p>
 				</div>
 			<?php
 			endwhile; // End of the loop.

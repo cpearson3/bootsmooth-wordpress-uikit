@@ -30,6 +30,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   height: 568px;
   background-size: cover; }
 
+.bs-person-image {
+  max-height: 320px; }
+
 /* ========================================================================
    Component: Base
  ========================================================================== */

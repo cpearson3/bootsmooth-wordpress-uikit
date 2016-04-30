@@ -172,29 +172,191 @@ require get_template_directory() . '/inc/jetpack.php';
  * 
  */
  
- /* Portfolio */
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
-  register_post_type( 'portfolio',
-    array(
-      'labels' => array(
-        'name' => __( 'Portfolio' ),
-        'singular_name' => __( 'Portfolio' )
-      ),
-      'public' => true,
-      'has_archive' => 'portfolio'
-    )
-  );
+	/* Portfolio */
+	register_post_type(
+		'portfolio',
+		array(
+			'labels' => array(
+				'name' => __( 'Portfolio' ),
+				'singular_name' => __( 'Portfolio' )
+			),
+			'public' => true,
+			'has_archive' => 'portfolio'
+		)
+	);
+	
+	/* Business */
+	register_post_type(
+		'business',
+		array(
+			'labels' => array(
+				'name' => __( 'Businesses' ),
+				'singular_name' => __( 'Business' )
+			),
+			'public' => true,
+			'has_archive' => 'business'
+		)
+	);
+	
+	/* Product */
+	register_post_type(
+		'product',
+		array(
+			'labels' => array(
+				'name' => __( 'Products' ),
+				'singular_name' => __( 'Product' )
+			),
+			'public' => true,
+			'has_archive' => 'product'
+		)
+	);
+	
+	/* Person */
+	register_post_type(
+		'person',
+		array(
+			'labels' => array(
+				'name' => __( 'People' ),
+				'singular_name' => __( 'Person' )
+			),
+			'public' => true,
+			'has_archive' => 'people'
+		)
+	);
+	
+	/* Service */
+	register_post_type(
+		'service',
+		array(
+			'labels' => array(
+				'name' => __( 'Services' ),
+				'singular_name' => __( 'Service' )
+			),
+			'public' => true,
+			'has_archive' => 'service'
+		)
+	);
 }
 
 // ADVANCED CUSTOM FIELDS INCLUDE
-include_once('advanced-custom-fields/acf.php');
-// acf fields form export
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
-		'id' => 'acf_hero-header',
-		'title' => 'Hero Header',
+		'id' => 'acf_localbusiness',
+		'title' => 'LocalBusiness',
+		'fields' => array (
+			array (
+				'key' => 'field_5723bee54dbf3',
+				'label' => 'Category',
+				'name' => 'category',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723bafd498bf',
+				'label' => 'Description',
+				'name' => 'description',
+				'type' => 'textarea',
+				'conditional_logic' => array (
+					'status' => 1,
+					'rules' => array (
+						array (
+							'field' => 'null',
+							'operator' => '==',
+							'value' => '',
+						),
+					),
+					'allorany' => 'all',
+				),
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_5723bb12498c0',
+				'label' => 'Address',
+				'name' => 'address',
+				'type' => 'google_map',
+				'required' => 1,
+				'center_lat' => '',
+				'center_lng' => '',
+				'zoom' => '',
+				'height' => '',
+			),
+			array (
+				'key' => 'field_5723bbab498c1',
+				'label' => 'Opening Hours',
+				'name' => 'opening_hours',
+				'type' => 'text',
+				'instructions' => 'See http://schema.org/LocalBusiness for instructions',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => 'Mo-Fri 08:00-17:00',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723bc63498c2',
+				'label' => 'Telephone',
+				'name' => 'telephone',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723bc8e498c3',
+				'label' => 'Website URL',
+				'name' => 'website',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => 'http://',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'business',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_main-heading-page',
+		'title' => 'Main Heading Page',
 		'fields' => array (
 			array (
 				'key' => 'field_5720da5491a1d',
@@ -274,9 +436,9 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'page_type',
+					'param' => 'page_template',
 					'operator' => '==',
-					'value' => 'front_page',
+					'value' => 'page-mainheading.php',
 					'order_no' => 0,
 					'group_no' => 0,
 				),
@@ -288,6 +450,88 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 				0 => 'the_content',
 				1 => 'comments',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_person',
+		'title' => 'Person',
+		'fields' => array (
+			array (
+				'key' => 'field_5723c75bad4fb',
+				'label' => 'Image',
+				'name' => 'image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5723c765ad4fc',
+				'label' => 'Job Title',
+				'name' => 'job_title',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723c774ad4fd',
+				'label' => 'Telephone',
+				'name' => 'telephone',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723c77dad4fe',
+				'label' => 'Email',
+				'name' => 'email',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_5723c7a662026',
+				'label' => 'Description',
+				'name' => 'description',
+				'type' => 'wysiwyg',
+				'default_value' => '',
+				'toolbar' => 'full',
+				'media_upload' => 'yes',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'person',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
 			),
 		),
 		'menu_order' => 0,
@@ -347,6 +591,126 @@ if(function_exists("register_field_group"))
 			'hide_on_screen' => array (
 				0 => 'the_content',
 				1 => 'comments',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_product',
+		'title' => 'Product',
+		'fields' => array (
+			array (
+				'key' => 'field_57240229b862a',
+				'label' => 'Category',
+				'name' => 'category',
+				'type' => 'text',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_57240232b862b',
+				'label' => 'Image',
+				'name' => 'image',
+				'type' => 'image',
+				'required' => 1,
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_5724031ab862c',
+				'label' => 'Price',
+				'name' => 'price',
+				'type' => 'number',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '$',
+				'append' => '',
+				'min' => '0.00',
+				'max' => '',
+				'step' => '',
+			),
+			array (
+				'key' => 'field_5724033cb862d',
+				'label' => 'Description',
+				'name' => 'description',
+				'type' => 'textarea',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'product',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_service',
+		'title' => 'Service',
+		'fields' => array (
+			array (
+				'key' => 'field_57240be6f688c',
+				'label' => 'Image',
+				'name' => 'image',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_57240bf2f688d',
+				'label' => 'Description',
+				'name' => 'description',
+				'type' => 'textarea',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'service',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
 			),
 		),
 		'menu_order' => 0,

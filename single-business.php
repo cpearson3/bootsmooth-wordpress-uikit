@@ -15,17 +15,15 @@ get_header(); ?>
 	
 			<?php
 			while ( have_posts() ) : the_post(); ?>
-				<div itemscope itemtype="http://schema.org/CreativeWork">
-				<?php
-					$image = get_field('feature_image');
-					if( !empty($image) ):
-				?>
-				<img itemprop="image" alt="<?php the_title(); ?>" src="<?php echo $image['url']; ?>">
-				<?php endif; ?>
-				<h1 class="uk-article-title"><a href="<?php the_permalink(); ?>"><span itemprop="name"><?php the_title(); ?></span></a></h1>
-				<p itemprop="datePublished"><small><?php the_date(); ?></small></p>
+				<div itemscope itemtype="http://schema.org/LocalBusiness">
+				<h1 class="uk-article-title"><span itemprop="name"><?php the_title(); ?></span></h1>
+				<p>Category: <strong><?php the_field('category'); ?></strong></p>
+				<p itemprop="address">Location: <?php the_field('address')['address']; ?></p>
+				<p itemprop="telephone">Phone: <?php the_field('telephone'); ?></p>
+				<p itemprop="openingHours" content="<?php the_field('opening_hours'); ?>">Hours: <?php the_field('opening_hours'); ?></p>
 				<hr class="uk-article-divider">
-				<p itemprop="text"><?php the_field('content'); ?></p>
+				<p itemprop="description"><?php the_field('description'); ?></p>
+				<p itemprop="url" content="http://<?php the_field('website'); ?>"><a href="http://<?php the_field('website'); ?>" target="_blank">Visit web site.</a></p>
 				</div>
 			<?php
 			endwhile; // End of the loop.

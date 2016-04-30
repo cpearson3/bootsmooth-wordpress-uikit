@@ -15,17 +15,16 @@ get_header(); ?>
 	
 			<?php
 			while ( have_posts() ) : the_post(); ?>
-				<div itemscope itemtype="http://schema.org/CreativeWork">
+				<div itemscope itemtype="http://schema.org/Service">
 				<?php
-					$image = get_field('feature_image');
+					$image = get_field('image');
 					if( !empty($image) ):
 				?>
 				<img itemprop="image" alt="<?php the_title(); ?>" src="<?php echo $image['url']; ?>">
 				<?php endif; ?>
-				<h1 class="uk-article-title"><a href="<?php the_permalink(); ?>"><span itemprop="name"><?php the_title(); ?></span></a></h1>
-				<p itemprop="datePublished"><small><?php the_date(); ?></small></p>
+				<h1 class="uk-article-title" itemprop="name"><?php the_title(); ?></h1>
 				<hr class="uk-article-divider">
-				<p itemprop="text"><?php the_field('content'); ?></p>
+				<p itemprop="description"><?php the_field('description'); ?></p>
 				</div>
 			<?php
 			endwhile; // End of the loop.

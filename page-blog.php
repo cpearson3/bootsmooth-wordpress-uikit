@@ -37,7 +37,7 @@ get_header(); ?>
 
 				<div class="uk-width-small-1-2 uk-width-medium-1-3">
 					<div class="uk-panel uk-panel-box">
-						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<p><small><?php the_date(); ?></small></p>
 						<p><?php the_excerpt(); ?></p>
 					</div>
