@@ -1,0 +1,26 @@
+{
+  "name": "bootsmooth-wordpress-uikit",
+  "description": "Bootsmooth Wordpress UIkit Starter Theme",
+  "main": "README.txt",
+  "authors": [
+    "Clarence Pearson"
+  ],
+  "license": "GPL",
+  "keywords": [
+    "bootsmooth",
+    "wordpress",
+    "uikit",
+    "theme"
+  ],
+  "homepage": "bootsmooth.com/wordpress-uikit-theme/",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "uikit": "^2.26.2"
+  }
+}
