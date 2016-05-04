@@ -5,21 +5,27 @@ Tested up to: 4.5.1
 Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-A starter theme called bootsmooth-wordpress-uikit, based on underscores + UIkit.
+Websote: http://www.bootsmooth.com/wordpress-uikit-theme/
 
 ## Description
 
-Hi. I'm a starter theme called bootsmooth-wordpress-uikit, or underscores, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
+The Bootsmooth Wordpress UIkit Theme is designed to accomplish these goals and lower development time by:
+
+1. Integrating commonly used responsive components with Wordpress.
+2. Implementing commonly required web data models and making them indexable.
+
+This theme empowers developers by utilizing open source tools including UIkit and Advanced Custom Fields and concepts like Rich Snippets to optimize sites for mobile and search.
 
 ## Installation
 
 1. Open a terminal and change to your **wp-content/themes** folder
 2. Clone the repository: `git clone https://github.com/cpearson3/bootsmooth-wordpress-uikit.git`
 3. Install node dependencies: `npm install`
-4. Buikd stylesheet: `npm run build-css`
+4. Build stylesheet: `npm run build-css`
 5. In your admin panel, go to Appearance > Themes and click the Add New button.
 6. Click Activate to use your new theme right away.
+
+To enable correct rendering of the navigation, you must create a menu. Go to Appearance > Menus in the Wordpress Admin panel and add pages or posts which you want to appear.
 
 ## Frequently Asked Questions
 
