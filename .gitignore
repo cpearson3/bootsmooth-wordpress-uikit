@@ -1,4 +1,3 @@
 # ignore bower and node directories
 /bower_components/*
 /node_modules/*
-
