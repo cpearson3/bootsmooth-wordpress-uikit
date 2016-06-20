@@ -1,11 +1,12 @@
-# bootsmooth-wordpress-uikit
+# A Wordpress Starter Theme Built with UIKit
+## Includes custom post types for common Schema.org Rich Snippets
 
 Requires at least: 4.0
 Tested up to: 4.5.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Websote: http://www.bootsmooth.com/wordpress-uikit-theme/
+Website: http://github.com/cpearson3/uikit-wordpress-starter/
 
 ## Description
 
@@ -19,7 +20,7 @@ This theme empowers developers by utilizing open source tools including UIkit an
 ## Installation
 
 1. Open a terminal and change to your **wp-content/themes** folder
-2. Clone the repository: `git clone https://github.com/cpearson3/bootsmooth-wordpress-uikit.git`
+2. Clone the repository: `git clone https://github.com/cpearson3/uikit-wordpress-starter.git`
 3. Install node dependencies: `npm install`
 4. Build stylesheet: `npm run build-css`
 5. In your admin panel, go to Appearance > Themes and click the Add New button.
@@ -31,9 +32,12 @@ To enable correct rendering of the navigation, you must create a menu. Go to App
 
 ### Does this theme support any plugins?
 
-bootsmooth-wordpress-uikit includes support for Advanced Custom Fields.
+This theme includes support for Advanced Custom Fields.
 
 ## Changelog
+
+### 1.0.1 - June 19 2016
+* Project name change
 
 ### 1.0 - April 29 2016
 * Initial release
