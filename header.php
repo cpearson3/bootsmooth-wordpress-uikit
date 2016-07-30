@@ -19,14 +19,12 @@
 <meta name="description" content="<?php bloginfo('description'); ?>" />
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
 <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text uk-hidden" href="#main"><?php esc_html_e( 'Skip to content', 'bootsmooth-wordpress-uikit' ); ?></a>
-	
 	<nav id="site-navigation" class="uk-navbar" role="navigation">
 		<a class="uk-navbar-brand uk-hidden-small" href="/"><?php bloginfo(); ?></a>
 		<?php wp_nav_menu( array( 'menu_id' => 'primary-menu', 'menu_class'=> 'uk-navbar-nav uk-hidden-small' ) ); ?>
@@ -34,7 +32,7 @@
             <?php get_search_form(); ?>
         </div>
         <a href="#offcanvas" class="uk-navbar-toggle uk-visible-small" data-uk-offcanvas></a>
-	</nav><!-- #site-navigation -->
+	</nav>
 	<div id="offcanvas" class="uk-offcanvas">
         <div class="uk-offcanvas-bar">
         	<?php wp_nav_menu( array( 'menu_id' => 'primary-menu', 'menu_class'=> 'uk-nav uk-nav-offcanvas' ) ); ?>
@@ -44,22 +42,3 @@
         	</div>
         </div>
     </div>
-	<!-- header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div>
-
-	</header> -->
-
